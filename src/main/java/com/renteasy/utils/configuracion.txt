@@ -1,2 +1,2 @@
-jdbc:mysql://localhost:3306/RentEasy
+jdbc:mysql://localhost:3306/renteasydb
 root

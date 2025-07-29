@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author gmart
  */
 // Clase para manejar la conexión a la base de datos usando el patrón Singleton
-class ConexionBD {
+public class ConexionBD {
 
     private static Connection conexion = null;
 
@@ -45,6 +45,7 @@ class ConexionBD {
                 // Cerrar el buffer de lectura
                 buffer.close();
                 conexion = DriverManager.getConnection(url, usuario, contraseña);
+                System.out.println("Se a conectado la base de datos con exito!");
                 return conexion;
 
             } catch (IOException e) {

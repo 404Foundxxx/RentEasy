@@ -46,7 +46,7 @@ public class ControladorContacto {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new ControladorInicio(frmInicio);
-                frmPropiedades.setVisible(true);
+                frmInicio.setVisible(true);
                 frmContacto.dispose();
 
             }

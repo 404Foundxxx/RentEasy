@@ -53,6 +53,8 @@ public class FrmInicio extends javax.swing.JFrame {
         btnVerTodasLasPropiedades = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicio - RentEasy");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(1175, 810));

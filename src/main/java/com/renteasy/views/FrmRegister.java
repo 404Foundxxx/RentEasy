@@ -24,9 +24,9 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnCrearCuenta = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblIniciarSesion = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jTextField2 = new javax.swing.JTextField();
 
@@ -78,23 +78,20 @@ public class FrmRegister extends javax.swing.JFrame {
         jTextField1.setToolTipText("");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 180, 368, 42));
 
-        jButton1.setBackground(new java.awt.Color(85, 148, 161));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Crear Cuenta");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 393, 368, 43));
+        btnCrearCuenta.setBackground(new java.awt.Color(85, 148, 161));
+        btnCrearCuenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnCrearCuenta.setText("Crear Cuenta");
+        btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 393, 368, 43));
 
         jLabel4.setText("¿Ya tienes una cuenta?");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 506, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(85, 148, 161));
-        jLabel5.setText("Inicia sesión");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 506, -1, -1));
+        lblIniciarSesion.setForeground(new java.awt.Color(85, 148, 161));
+        lblIniciarSesion.setText("Inicia sesión");
+        lblIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 506, -1, -1));
 
         jPasswordField1.setText("jPasswordField1");
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 320, 368, 42));
@@ -109,23 +106,17 @@ public class FrmRegister extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        new FrmLogin().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jLabel5MouseClicked
-
     public static void main(String args[]) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnCrearCuenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -133,5 +124,6 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    public javax.swing.JLabel lblIniciarSesion;
     // End of variables declaration//GEN-END:variables
 }

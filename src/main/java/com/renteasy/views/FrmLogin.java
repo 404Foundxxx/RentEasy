@@ -22,12 +22,12 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtCorreo = new javax.swing.JTextField();
+        btnIniciarSesion = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        lblRegistrateAqui = new javax.swing.JLabel();
+        lblOlvidasteContrasena = new javax.swing.JLabel();
+        txtContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar Sesión - RentEasy");
@@ -68,35 +68,30 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel1.setText("Ingresa tus credenciales para acceder a tu cuenta.");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 147, -1, -1));
 
-        jTextField1.setText("Correo Electronico");
-        jTextField1.setToolTipText("");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 233, 368, 42));
+        txtCorreo.setText("Correo Electronico");
+        txtCorreo.setToolTipText("");
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 233, 368, 42));
 
-        jButton1.setBackground(new java.awt.Color(85, 148, 161));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Iniciar Sesión");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 393, 368, 43));
+        btnIniciarSesion.setBackground(new java.awt.Color(85, 148, 161));
+        btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setText("Iniciar Sesión");
+        jPanel1.add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 393, 368, 43));
 
         jLabel4.setText("¿No tienes una cuenta?");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 506, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(85, 148, 161));
-        jLabel5.setText("Regístrate aquí");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 506, -1, -1));
+        lblRegistrateAqui.setForeground(new java.awt.Color(85, 148, 161));
+        lblRegistrateAqui.setText("Regístrate aquí");
+        lblRegistrateAqui.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(lblRegistrateAqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 506, -1, -1));
 
-        jLabel6.setForeground(new java.awt.Color(85, 148, 161));
-        jLabel6.setText("¿Olvidaste tu contraseña?");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 341, -1, -1));
+        lblOlvidasteContrasena.setForeground(new java.awt.Color(85, 148, 161));
+        lblOlvidasteContrasena.setText("¿Olvidaste tu contraseña?");
+        jPanel1.add(lblOlvidasteContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 341, -1, -1));
 
-        jPasswordField1.setText("jPasswordField1");
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 290, 368, 42));
+        txtContrasena.setText("jPasswordField1");
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 290, 368, 42));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
@@ -104,28 +99,23 @@ public class FrmLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        new FrmRegister().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jLabel5MouseClicked
-
     public static void main(String args[]) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnIniciarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JLabel lblOlvidasteContrasena;
+    public javax.swing.JLabel lblRegistrateAqui;
+    public javax.swing.JPasswordField txtContrasena;
+    public javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }

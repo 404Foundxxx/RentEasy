@@ -11,7 +11,6 @@ public class App {
 
     public static void main(String[] args) {
         Utilities.FlatLaf();
-        LoginGUI lgui = new LoginGUI();
-        lgui.setVisible(true);
+        new FrmLogin().setVisible(true);
     }
 }

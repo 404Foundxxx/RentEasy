@@ -1,16 +1,47 @@
 package com.renteasy.controllers;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import com.renteasy.views.FrmLogin;
+import com.renteasy.views.FrmRegister;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
  * @author gmart
  */
-public class ControladorRegister implements ActionListener {
+public class ControladorRegister {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    private FrmLogin frmLogin = new FrmLogin();
+    private FrmRegister frmRegister = new FrmRegister();
+
+    public ControladorRegister() {
+
+    }
+    
+    /**
+     * Constructor con parámetros para inicializar los componentes del frame
+     * Register
+     *
+     * @param fr
+     */
+    public ControladorRegister(FrmRegister fr) {
+        this.frmRegister = fr;
+
+        // Botón Crear Cuenta
+        this.frmRegister.btnCrearCuenta.addActionListener(e -> {
+
+        });
+
+        // Label para volver a iniciar sesión
+        this.frmRegister.lblIniciarSesion.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                new ControladorLogin(frmLogin);
+                frmLogin.setVisible(true);
+                frmRegister.dispose();
+            }
+        });
+
     }
 
 }

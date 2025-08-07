@@ -81,7 +81,6 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel1.setText("Es rápido, fácil y gratis.");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
-        txtApellido.setText("Apellido");
         txtApellido.setToolTipText("");
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 368, 42));
 
@@ -99,15 +98,11 @@ public class FrmRegister extends javax.swing.JFrame {
         lblIniciarSesion.setText("Inicia sesión");
         lblIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, -1, -1));
-
-        txtContrasena.setText("jPasswordField1");
         jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 368, 42));
 
-        txtCorreo.setText("Correo Electronico");
         txtCorreo.setToolTipText("");
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 368, 42));
 
-        txtNombre.setText("Nombre");
         txtNombre.setToolTipText("");
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 368, 42));
 
@@ -133,9 +128,9 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel lblIniciarSesion;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JPasswordField txtContrasena;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtApellido;
+    public javax.swing.JPasswordField txtContrasena;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

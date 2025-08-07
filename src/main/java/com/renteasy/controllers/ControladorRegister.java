@@ -17,7 +17,7 @@ public class ControladorRegister {
     public ControladorRegister() {
 
     }
-    
+
     /**
      * Constructor con parámetros para inicializar los componentes del frame
      * Register
@@ -26,6 +26,8 @@ public class ControladorRegister {
      */
     public ControladorRegister(FrmRegister fr) {
         this.frmRegister = fr;
+        
+        configurarPlaceholders();
 
         // Botón Crear Cuenta
         this.frmRegister.btnCrearCuenta.addActionListener(e -> {
@@ -42,6 +44,24 @@ public class ControladorRegister {
             }
         });
 
+    }
+
+    /**
+     * Método que se encarga de inicializar los placeholders de los campos del
+     * formulario de registro.
+     */
+    private void configurarPlaceholders() {
+        // Campo de Nombre
+        frmRegister.txtNombre.putClientProperty("JTextField.placeholderText", "Nombre");
+
+        // Campo de Apellido
+        frmRegister.txtApellido.putClientProperty("JTextField.placeholderText", "Apellido");
+
+        // Campo de Correo Electrónico
+        frmRegister.txtCorreo.putClientProperty("JTextField.placeholderText", "Correo electrónico");
+
+        // Campo de Contraseña
+        frmRegister.txtContrasena.putClientProperty("JTextField.placeholderText", "Contraseña");
     }
 
 }

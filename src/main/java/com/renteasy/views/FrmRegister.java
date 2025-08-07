@@ -23,12 +23,13 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         btnCrearCuenta = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         lblIniciarSesion = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField2 = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JPasswordField();
+        txtCorreo = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro - RentEasy");
@@ -80,31 +81,35 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel1.setText("Es rápido, fácil y gratis.");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
-        jTextField1.setText("Nombre Completo");
-        jTextField1.setToolTipText("");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 368, 42));
+        txtApellido.setText("Apellido");
+        txtApellido.setToolTipText("");
+        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 368, 42));
 
         btnCrearCuenta.setBackground(new java.awt.Color(85, 148, 161));
         btnCrearCuenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearCuenta.setText("Crear Cuenta");
         btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 368, 43));
+        jPanel1.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 368, 43));
 
         jLabel4.setText("¿Ya tienes una cuenta?");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 570, -1, -1));
 
         lblIniciarSesion.setForeground(new java.awt.Color(85, 148, 161));
         lblIniciarSesion.setText("Inicia sesión");
         lblIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 510, -1, -1));
+        jPanel1.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, -1, -1));
 
-        jPasswordField1.setText("jPasswordField1");
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 368, 42));
+        txtContrasena.setText("jPasswordField1");
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 368, 42));
 
-        jTextField2.setText("Correo Electronico");
-        jTextField2.setToolTipText("");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 368, 42));
+        txtCorreo.setText("Correo Electronico");
+        txtCorreo.setToolTipText("");
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 368, 42));
+
+        txtNombre.setText("Nombre");
+        txtNombre.setToolTipText("");
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 368, 42));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
@@ -127,9 +132,10 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     public javax.swing.JLabel lblIniciarSesion;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JPasswordField txtContrasena;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

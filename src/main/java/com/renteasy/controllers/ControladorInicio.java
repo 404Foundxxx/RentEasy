@@ -2,7 +2,7 @@ package com.renteasy.controllers;
 
 import com.renteasy.views.FrmContacto;
 import com.renteasy.views.FrmInicio;
-import com.renteasy.views.FrmPropiedades;
+import com.renteasy.views.FrmInicio;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -12,8 +12,8 @@ import java.awt.event.MouseEvent;
  */
 public class ControladorInicio {
 
+    private FrmInicio frmPropiedades = new FrmInicio();
     private FrmInicio frmInicio = new FrmInicio();
-    private FrmPropiedades frmPropiedades = new FrmPropiedades();
     private FrmContacto frmContacto = new FrmContacto();
 
     public ControladorInicio() {
@@ -22,51 +22,36 @@ public class ControladorInicio {
 
     /**
      * Constructor con parámetros para inicializar los componentes del frame
-     * inicio
+     * Propiedades
      *
-     * @param fi
+     * @param fp
      */
-    public ControladorInicio(FrmInicio fi) {
-        this.frmInicio = fi;
+    public ControladorInicio(FrmInicio fp) {
+        this.frmPropiedades = fp;
 
-        // Boton Buscar
-        this.frmInicio.btnBuscar.addActionListener(e -> {
-
-        });
-
-        // TextField Ciudad, sector o código postal.
-        this.frmInicio.txtCiudadSectorOCodigoPostal.addActionListener(e -> {
+        // Boton Aplicar filtros
+        this.frmPropiedades.btnBuscar.addActionListener(e -> {
 
         });
+        // Label Inicio
+        this.frmPropiedades.lblInicio.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                new ControladorInicio(frmInicio);
+                frmInicio.setVisible(true);
+                frmPropiedades.dispose();
 
-        // Boton Ver Todas las Propiedades
-        this.frmInicio.btnVerTodasLasPropiedades.addActionListener(e -> {
-            new ControladorPropiedades(frmPropiedades);
-            frmPropiedades.setVisible(true);
-            frmInicio.dispose();
+            }
         });
-
         // Label Contacto
-        this.frmInicio.lblContacto.addMouseListener(new MouseAdapter() {
+        this.frmPropiedades.lblContacto.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new ControladorContacto(frmContacto);
                 frmContacto.setVisible(true);
-                frmInicio.dispose();
+                frmPropiedades.dispose();
 
             }
         });
-
-        // Label Propiedades
-        this.frmInicio.lblPropiedades.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                new ControladorPropiedades(frmPropiedades);
-                frmPropiedades.setVisible(true);
-                frmInicio.dispose();
-
-            }
-        });
-
     }
 }

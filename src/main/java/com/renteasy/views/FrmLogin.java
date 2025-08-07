@@ -72,14 +72,6 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 147, -1, -1));
 
         txtCorreo.setToolTipText("");
-        txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCorreoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCorreoFocusLost(evt);
-            }
-        });
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 233, 368, 42));
 
         btnIniciarSesion.setBackground(new java.awt.Color(85, 148, 161));
@@ -99,15 +91,6 @@ public class FrmLogin extends javax.swing.JFrame {
         lblOlvidasteContrasena.setForeground(new java.awt.Color(85, 148, 161));
         lblOlvidasteContrasena.setText("¿Olvidaste tu contraseña?");
         jPanel1.add(lblOlvidasteContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 341, -1, -1));
-
-        txtContrasena.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtContrasenaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtContrasenaFocusLost(evt);
-            }
-        });
         jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 290, 368, 42));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
@@ -115,40 +98,6 @@ public class FrmLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtCorreoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusGained
-        if (txtCorreo.getText().equals("Correo Electrónico")) {
-            txtCorreo.setText("");
-            txtCorreo.setForeground(Color.BLACK);
-        }
-    }//GEN-LAST:event_txtCorreoFocusGained
-
-    private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost
-        // TODO add your handling code here:
-        if (txtCorreo.getText().isEmpty()) {
-            txtCorreo.setForeground(Color.GRAY);
-            txtCorreo.setText("Correo Electrónico");
-        }
-
-    }//GEN-LAST:event_txtCorreoFocusLost
-
-    private void txtContrasenaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContrasenaFocusGained
-        String pwd = new String(txtContrasena.getPassword());
-        if (pwd.equals("Contraseña")) {
-            txtContrasena.setText("");
-            txtContrasena.setForeground(Color.BLACK);
-        }
-
-    }//GEN-LAST:event_txtContrasenaFocusGained
-
-    private void txtContrasenaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContrasenaFocusLost
-        String pwd = new String(txtContrasena.getPassword());
-        if (pwd.isEmpty()) {
-            txtContrasena.setForeground(Color.GRAY);
-            txtContrasena.setText("Contraseña");
-            txtContrasena.setEchoChar((char) 0); // desactiva el ocultamiento para mostrar placeholder
-        }
-    }//GEN-LAST:event_txtContrasenaFocusLost
 
     public static void main(String args[]) {
     }

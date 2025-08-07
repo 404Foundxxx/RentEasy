@@ -30,6 +30,8 @@ public class ControladorLogin {
     public ControladorLogin(FrmLogin fl) {
         this.frmLogin = fl;
 
+        configurarPlaceholdersLogin();
+
         // Boton Iniciar Sesion
         this.frmLogin.btnIniciarSesion.addActionListener(e -> {
             new ControladorInicio(frmInicio);
@@ -58,4 +60,17 @@ public class ControladorLogin {
         });
 
     }
+
+    /**
+     * Método que se encarga de inicializar los placeholders de los campos del
+     * formulario de inicio de sesión.
+     */
+    private void configurarPlaceholdersLogin() {
+        // Campo de Correo Electrónico
+        frmLogin.txtCorreo.putClientProperty("JTextField.placeholderText", "Correo electrónico");
+
+        // Campo de Contraseña
+        frmLogin.txtContrasena.putClientProperty("JTextField.placeholderText", "Contraseña");
+    }
+
 }

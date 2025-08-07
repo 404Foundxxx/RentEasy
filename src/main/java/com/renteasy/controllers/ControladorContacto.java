@@ -2,7 +2,7 @@ package com.renteasy.controllers;
 
 import com.renteasy.views.FrmContacto;
 import com.renteasy.views.FrmInicio;
-import com.renteasy.views.FrmPropiedades;
+import com.renteasy.views.FrmInicio;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -14,7 +14,7 @@ public class ControladorContacto {
 
     private FrmContacto frmContacto = new FrmContacto();
     private FrmInicio frmInicio = new FrmInicio();
-    private FrmPropiedades frmPropiedades = new FrmPropiedades();
+    private FrmInicio frmPropiedades = new FrmInicio();
 
     public ControladorContacto() {
 
@@ -31,10 +31,10 @@ public class ControladorContacto {
         this.frmContacto = fc;
 
         // Label Propidades
-        this.frmContacto.lblPropiedades.addMouseListener(new MouseAdapter() {
+        this.frmContacto.lblPublicarPropiedad.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new ControladorPropiedades(frmPropiedades);
+                new ControladorInicio(frmPropiedades);
                 frmPropiedades.setVisible(true);
                 frmContacto.dispose();
 

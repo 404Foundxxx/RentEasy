@@ -16,11 +16,10 @@ public class FrmContacto extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        lblSalir = new javax.swing.JLabel();
+        lblCerrarSesion = new javax.swing.JLabel();
         lblPublicarPropiedad = new javax.swing.JLabel();
         lblInicio = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
@@ -48,31 +47,28 @@ public class FrmContacto extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblSalir.setForeground(new java.awt.Color(255, 255, 255));
-        lblSalir.setText("Cerrar Sesión");
-        lblSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(lblSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, 60));
+        lblCerrarSesion.setForeground(new java.awt.Color(0, 119, 182));
+        lblCerrarSesion.setText("Cerrar Sesión");
+        lblCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(lblCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, 60));
 
-        lblPublicarPropiedad.setForeground(new java.awt.Color(255, 255, 255));
+        lblPublicarPropiedad.setForeground(new java.awt.Color(0, 119, 182));
         lblPublicarPropiedad.setText("Publicar Propiedad");
         lblPublicarPropiedad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(lblPublicarPropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, -1, 60));
 
-        lblInicio.setForeground(new java.awt.Color(255, 255, 255));
+        lblInicio.setForeground(new java.awt.Color(0, 119, 182));
         lblInicio.setText("Inicio");
         lblInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(lblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 119, 182));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("RentEasy");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Header.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 0, 830, 60));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, -1));
 
         jLabel4.setText("¿Tienes alguna pregunta? Estamos aquí para ayudarte.");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
@@ -93,7 +89,7 @@ public class FrmContacto extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 440, 206));
 
-        btnEnviar.setBackground(new java.awt.Color(85, 148, 161));
+        btnEnviar.setBackground(new java.awt.Color(0, 119, 182));
         btnEnviar.setForeground(new java.awt.Color(0, 0, 0));
         btnEnviar.setText("Enviar");
         jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, 85, 32));
@@ -126,7 +122,7 @@ public class FrmContacto extends javax.swing.JFrame {
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 440, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(85, 148, 161));
+        jLabel7.setForeground(new java.awt.Color(0, 119, 182));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Ponte en Contacto con Nosotros");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 820, 70));
@@ -150,15 +146,14 @@ public class FrmContacto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel lblCerrarSesion;
     public javax.swing.JLabel lblInicio;
     public javax.swing.JLabel lblPublicarPropiedad;
-    public javax.swing.JLabel lblSalir;
     private javax.swing.JTextField txtAsunto;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextArea txtMensaje;

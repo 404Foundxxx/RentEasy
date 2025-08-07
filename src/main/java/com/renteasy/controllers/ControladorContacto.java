@@ -32,6 +32,8 @@ public class ControladorContacto {
      */
     public ControladorContacto(FrmContacto fc) {
         this.frmContacto = fc;
+        
+        configurarPlaceholdersContacto();
 
         // Label Inicio
         this.frmContacto.lblInicio.addMouseListener(new MouseAdapter() {
@@ -66,6 +68,21 @@ public class ControladorContacto {
             }
         });
 
+    }
+
+    /**
+     * Método que configura los placeholders de los campos del formulario de
+     * contacto.
+     */
+    private void configurarPlaceholdersContacto() {
+        // Campo de Nombre
+        frmContacto.txtNombre.putClientProperty("JTextField.placeholderText", "Tu Nombre");
+
+        // Campo de Email
+        frmContacto.txtEmail.putClientProperty("JTextField.placeholderText", "Tu Email");
+
+        // Campo de Asunto
+        frmContacto.txtAsunto.putClientProperty("JTextField.placeholderText", "Asunto");
     }
 
 }

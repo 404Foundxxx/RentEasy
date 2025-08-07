@@ -24,7 +24,7 @@ public class FrmContacto extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtAsunto = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane = new javax.swing.JScrollPane();
         txtMensaje = new javax.swing.JTextArea();
         btnEnviar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -72,22 +72,15 @@ public class FrmContacto extends javax.swing.JFrame {
 
         jLabel4.setText("¿Tienes alguna pregunta? Estamos aquí para ayudarte.");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
-
-        txtNombre.setText("Tu Nombre");
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 440, 40));
-
-        txtEmail.setText("Tu Email");
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 440, 40));
-
-        txtAsunto.setText("Asunto");
         jPanel1.add(txtAsunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 440, 40));
 
         txtMensaje.setColumns(20);
         txtMensaje.setRows(5);
-        txtMensaje.setText("Tu Mensaje");
-        jScrollPane1.setViewportView(txtMensaje);
+        jScrollPane.setViewportView(txtMensaje);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 440, 206));
+        jPanel1.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 440, 206));
 
         btnEnviar.setBackground(new java.awt.Color(0, 119, 182));
         btnEnviar.setForeground(new java.awt.Color(0, 0, 0));
@@ -150,13 +143,13 @@ public class FrmContacto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane;
     public javax.swing.JLabel lblCerrarSesion;
     public javax.swing.JLabel lblInicio;
     public javax.swing.JLabel lblPublicarPropiedad;
-    private javax.swing.JTextField txtAsunto;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextArea txtMensaje;
-    private javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtAsunto;
+    public javax.swing.JTextField txtEmail;
+    public javax.swing.JTextArea txtMensaje;
+    public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

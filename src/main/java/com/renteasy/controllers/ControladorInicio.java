@@ -2,7 +2,8 @@ package com.renteasy.controllers;
 
 import com.renteasy.views.FrmContacto;
 import com.renteasy.views.FrmInicio;
-import com.renteasy.views.FrmInicio;
+import com.renteasy.views.FrmLogin;
+import com.renteasy.views.FrmPublicarPropiedad;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -12,9 +13,10 @@ import java.awt.event.MouseEvent;
  */
 public class ControladorInicio {
 
-    private FrmInicio frmPropiedades = new FrmInicio();
     private FrmInicio frmInicio = new FrmInicio();
     private FrmContacto frmContacto = new FrmContacto();
+    private FrmLogin frmLogin = new FrmLogin();
+    private FrmPublicarPropiedad frmPublicarPropiedad = new FrmPublicarPropiedad();
 
     public ControladorInicio() {
 
@@ -27,29 +29,39 @@ public class ControladorInicio {
      * @param fp
      */
     public ControladorInicio(FrmInicio fp) {
-        this.frmPropiedades = fp;
+        this.frmInicio = fp;
 
         // Boton Aplicar filtros
-        this.frmPropiedades.btnBuscar.addActionListener(e -> {
+        this.frmInicio.btnBuscar.addActionListener(e -> {
 
         });
-        // Label Inicio
-        this.frmPropiedades.lblInicio.addMouseListener(new MouseAdapter() {
+        // Label Publicar Propiedad
+        this.frmInicio.lblPublicarPropiedad.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new ControladorInicio(frmInicio);
-                frmInicio.setVisible(true);
-                frmPropiedades.dispose();
+                new ControladorPublicarPropiedad(frmPublicarPropiedad);
+                frmPublicarPropiedad.setVisible(true);
+                frmInicio.dispose();
 
             }
         });
         // Label Contacto
-        this.frmPropiedades.lblContacto.addMouseListener(new MouseAdapter() {
+        this.frmInicio.lblContacto.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new ControladorContacto(frmContacto);
                 frmContacto.setVisible(true);
-                frmPropiedades.dispose();
+                frmInicio.dispose();
+
+            }
+        });
+        // Label Cerrar Sesion
+        this.frmInicio.lblCerrarSesion.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                new ControladorLogin(frmLogin);
+                frmLogin.setVisible(true);
+                frmInicio.dispose();
 
             }
         });

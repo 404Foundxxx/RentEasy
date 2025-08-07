@@ -18,7 +18,8 @@ public class FrmInicio extends javax.swing.JFrame {
         pnlHeader = new javax.swing.JPanel();
         lblMarca = new javax.swing.JLabel();
         lblContacto = new javax.swing.JLabel();
-        lblInicio = new javax.swing.JLabel();
+        lblCerrarSesion = new javax.swing.JLabel();
+        lblPublicarPropiedad = new javax.swing.JLabel();
         panelRound1 = new com.renteasy.utils.PanelRound();
         cmbProvincia = new javax.swing.JComboBox<>();
         cmbCiudadSector = new javax.swing.JComboBox<>();
@@ -53,9 +54,13 @@ public class FrmInicio extends javax.swing.JFrame {
         lblContacto.setText("Contacto");
         lblContacto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        lblInicio.setForeground(new java.awt.Color(0, 119, 182));
-        lblInicio.setText("Inicio");
-        lblInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCerrarSesion.setForeground(new java.awt.Color(0, 119, 182));
+        lblCerrarSesion.setText("Cerrar Sesión");
+        lblCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lblPublicarPropiedad.setForeground(new java.awt.Color(0, 119, 182));
+        lblPublicarPropiedad.setText("Publicar Propiedad");
+        lblPublicarPropiedad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
@@ -64,11 +69,13 @@ public class FrmInicio extends javax.swing.JFrame {
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblInicio)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1010, Short.MAX_VALUE)
+                .addComponent(lblPublicarPropiedad)
+                .addGap(18, 18, 18)
                 .addComponent(lblContacto)
-                .addGap(28, 28, 28))
+                .addGap(18, 18, 18)
+                .addComponent(lblCerrarSesion)
+                .addGap(27, 27, 27))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +84,8 @@ public class FrmInicio extends javax.swing.JFrame {
                 .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPublicarPropiedad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -218,12 +226,13 @@ public class FrmInicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblCiudadSector;
     public javax.swing.JLabel lblContacto;
     private javax.swing.JLabel lblHabitaciones;
-    public javax.swing.JLabel lblInicio;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblProvincia;
+    public javax.swing.JLabel lblPublicarPropiedad;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTitulo1;
     private com.renteasy.utils.PanelRound panelRound1;

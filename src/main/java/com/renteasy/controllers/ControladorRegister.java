@@ -67,11 +67,11 @@ public class ControladorRegister {
         // Campo de Nombre
         frmRegister.txtNombre.putClientProperty("JTextField.placeholderText", "Nombre");
 
-        // Campo de Apellido
-        frmRegister.txtApellido.putClientProperty("JTextField.placeholderText", "Apellido");
+        // Campo de Teléfono
+        frmRegister.txtTelefono.putClientProperty("JTextField.placeholderText", "Teléfono");
 
         // Campo de Correo Electrónico
-        frmRegister.txtCorreo.putClientProperty("JTextField.placeholderText", "Correo electrónico");
+        frmRegister.txtEmail.putClientProperty("JTextField.placeholderText", "Correo electrónico");
 
         // Campo de Contraseña
         frmRegister.txtContrasena.putClientProperty("JTextField.placeholderText", "Contraseña");

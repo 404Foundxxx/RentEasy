@@ -23,13 +23,14 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtApellido = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         btnCrearCuenta = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         lblIniciarSesion = new javax.swing.JLabel();
-        txtContrasena = new javax.swing.JPasswordField();
-        txtCorreo = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JPasswordField();
+        cmbTipoUsuario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro - RentEasy");
@@ -76,35 +77,36 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(85, 148, 161));
         jLabel3.setText("Crea Tu Cuenta");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
         jLabel1.setText("Es rápido, fácil y gratis.");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
-        txtApellido.setToolTipText("");
-        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 368, 42));
+        txtEmail.setToolTipText("");
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 368, 42));
 
         btnCrearCuenta.setBackground(new java.awt.Color(85, 148, 161));
         btnCrearCuenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearCuenta.setText("Crear Cuenta");
         btnCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 368, 43));
+        jPanel1.add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, 368, 43));
 
         jLabel4.setText("¿Ya tienes una cuenta?");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 570, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 580, -1, -1));
 
         lblIniciarSesion.setForeground(new java.awt.Color(85, 148, 161));
         lblIniciarSesion.setText("Inicia sesión");
         lblIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, -1, -1));
-        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 368, 42));
+        jPanel1.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 580, -1, -1));
 
-        txtCorreo.setToolTipText("");
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 368, 42));
+        txtTelefono.setToolTipText("");
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 368, 42));
 
         txtNombre.setToolTipText("");
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 368, 42));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 368, 42));
+        jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 368, 42));
+        jPanel1.add(cmbTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 368, 42));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
@@ -117,6 +119,7 @@ public class FrmRegister extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCrearCuenta;
+    public javax.swing.JComboBox<String> cmbTipoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -128,9 +131,9 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel lblIniciarSesion;
-    public javax.swing.JTextField txtApellido;
     public javax.swing.JPasswordField txtContrasena;
-    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtEmail;
     public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

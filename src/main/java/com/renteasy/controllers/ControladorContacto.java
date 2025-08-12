@@ -2,7 +2,6 @@ package com.renteasy.controllers;
 
 import com.renteasy.views.FrmContacto;
 import com.renteasy.views.FrmInicio;
-import com.renteasy.views.FrmInicio;
 import com.renteasy.views.FrmLogin;
 import com.renteasy.views.FrmPublicarPropiedad;
 import java.awt.event.MouseAdapter;

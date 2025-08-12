@@ -16,7 +16,7 @@ public class Usuario {
     private int id;
     private String nombre;
     private String email;
-    private String contrasena;  // Sin ñ para evitar problemas de encoding
+    private String contrasena;  
     private String telefono;
     private String tipoUsuario;
     private Timestamp creadoEn;

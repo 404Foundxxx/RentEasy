@@ -57,6 +57,12 @@ public class ControladorRegister {
             }
         });
 
+        // Llenar ComboBox de Tipo de Usuario con el enum de Usuario
+        this.frmRegister.cmbTipoUsuario.removeAllItems();
+        for (Usuario.TipoUsuario tipo : Usuario.TipoUsuario.values()) {
+            this.frmRegister.cmbTipoUsuario.addItem(tipo.getValor());
+        }
+
     }
 
     /**

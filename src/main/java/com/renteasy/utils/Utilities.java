@@ -17,6 +17,11 @@ public class Utilities {
         UIManager.put("PasswordField.showRevealButton", true);
     }
 
+    /**
+     * Método para establecer el ícono de la ventana.
+     *
+     * @param frame El marco de la ventana.
+     */
     public static void setIconoVentana(JFrame frame) {
         URL location = Utilities.class.getResource("/images/EasyPequeno.png");
         if (location != null) {

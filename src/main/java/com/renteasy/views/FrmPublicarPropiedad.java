@@ -63,22 +63,22 @@ public class FrmPublicarPropiedad extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        pnlHeader.setBackground(new java.awt.Color(255, 255, 255));
+        pnlHeader.setBackground(new java.awt.Color(0, 119, 182));
 
         lblMarca.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblMarca.setForeground(new java.awt.Color(0, 119, 182));
+        lblMarca.setForeground(new java.awt.Color(255, 255, 255));
         lblMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMarca.setText("RentEasy");
 
-        lblContacto.setForeground(new java.awt.Color(0, 119, 182));
+        lblContacto.setForeground(new java.awt.Color(255, 255, 255));
         lblContacto.setText("Contacto");
         lblContacto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        lblInicio.setForeground(new java.awt.Color(0, 119, 182));
+        lblInicio.setForeground(new java.awt.Color(255, 255, 255));
         lblInicio.setText("Inicio");
         lblInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        lblCerrarSesion.setForeground(new java.awt.Color(0, 119, 182));
+        lblCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         lblCerrarSesion.setText("Cerrar Sesion");
         lblCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -172,6 +172,7 @@ public class FrmPublicarPropiedad extends javax.swing.JFrame {
         btnSubir.setText("Subir");
 
         btnPublicarPropiedad.setBackground(new java.awt.Color(0, 119, 182));
+        btnPublicarPropiedad.setForeground(new java.awt.Color(255, 255, 255));
         btnPublicarPropiedad.setText("Publicar Propiedad");
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);

@@ -1,7 +1,5 @@
 package com.renteasy.views;
 
-import java.awt.Color;
-
 /**
  *
  * @author gmart
@@ -30,6 +28,7 @@ public class FrmLogin extends javax.swing.JFrame {
         lblRegistrateAqui = new javax.swing.JLabel();
         lblOlvidasteContrasena = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
+        lblAcercaDe = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar Sesión - RentEasy");
@@ -93,6 +92,12 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.add(lblOlvidasteContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 341, -1, -1));
         jPanel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(632, 290, 368, 42));
 
+        lblAcercaDe.setForeground(new java.awt.Color(85, 148, 161));
+        lblAcercaDe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAcercaDe.setText("Acerca de");
+        lblAcercaDe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(lblAcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 620, 90, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, -1));
 
         pack();
@@ -113,6 +118,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel lblAcercaDe;
     public javax.swing.JLabel lblOlvidasteContrasena;
     public javax.swing.JLabel lblRegistrateAqui;
     public javax.swing.JPasswordField txtContrasena;

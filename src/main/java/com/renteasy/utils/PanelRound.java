@@ -76,6 +76,9 @@ public class PanelRound extends JPanel {
         super.paintComponent(grphcs);
     }
 
+    /**
+     * Método para crear la forma redondeada en la esquina superior izquierda.
+     */
     private Shape createRoundTopLeft() {
         int width = getWidth();
         int height = getHeight();
@@ -87,6 +90,9 @@ public class PanelRound extends JPanel {
         return area;
     }
 
+    /**
+     * Método para crear la forma redondeada en la esquina superior derecha.
+     */
     private Shape createRoundTopRight() {
         int width = getWidth();
         int height = getHeight();
@@ -98,6 +104,9 @@ public class PanelRound extends JPanel {
         return area;
     }
 
+    /**
+     * Método para crear la forma redondeada en la esquina inferior izquierda.
+     */
     private Shape createRoundBottomLeft() {
         int width = getWidth();
         int height = getHeight();
@@ -109,6 +118,9 @@ public class PanelRound extends JPanel {
         return area;
     }
 
+    /**
+     * Método para crear la forma redondeada en la esquina inferior derecha.
+     */
     private Shape createRoundBottomRight() {
         int width = getWidth();
         int height = getHeight();

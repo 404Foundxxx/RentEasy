@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.renteasy.dao;
 
 import com.renteasy.database.ConexionBD;
@@ -14,9 +10,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class usuarioDAO {
+public class UsuarioDAO {
     
-    private static final Logger LOGGER = Logger.getLogger(usuarioDAO.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(UsuarioDAO.class.getName());
 
    
     /**

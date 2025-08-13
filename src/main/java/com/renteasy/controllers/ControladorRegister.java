@@ -18,7 +18,7 @@ public class ControladorRegister {
 
     private FrmLogin frmLogin = new FrmLogin();
     private FrmRegister frmRegister = new FrmRegister();
-    private usuarioDAO usuarioDAO = new usuarioDAO();
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     public ControladorRegister() {
 

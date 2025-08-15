@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class UsuarioDAO {
     
     private static final Logger LOGGER = Logger.getLogger(UsuarioDAO.class.getName());
@@ -215,6 +216,14 @@ public class UsuarioDAO {
             LOGGER.log(Level.SEVERE, "Error al listar usuarios", e);
         }
         return lista;
+    }
+
+    /**
+     * Obtener todos los usuarios (método de compatibilidad)
+     * @return Lista de todos los usuarios
+     */
+    public List<Usuario> obtenerTodos() {
+        return listar();
     }
 
     /**

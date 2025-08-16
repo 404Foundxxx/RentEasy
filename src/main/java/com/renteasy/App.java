@@ -1,13 +1,9 @@
 package com.renteasy;
 
-import com.renteasy.controllers.ControladorLogin;
+import com.renteasy.controllers.Inicio.ControladorLogin;
 import com.renteasy.utils.Utilities;
-import com.renteasy.views.*;
+import com.renteasy.views.inicio.*;
 
-/**
- *
- * @author gmart
- */
 public class App {
 
     public static void main(String[] args) {
@@ -18,3 +14,4 @@ public class App {
         frmLogin.setVisible(true);
     }
 }
+

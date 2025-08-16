@@ -9,10 +9,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *
- * @author gmart
- */
 // Clase para manejar la conexión a la base de datos usando el patrón Singleton
 public class ConexionBD {
 
@@ -52,12 +48,6 @@ public class ConexionBD {
                 System.out.println("Mensaje (conexion):" + e.getMessage());
                 return null;
             }
-        }
-    }
-
-    public static void cerrarConexion() throws SQLException {
-        if (conexion != null && !conexion.isClosed()) {
-            conexion.close();
         }
     }
 }

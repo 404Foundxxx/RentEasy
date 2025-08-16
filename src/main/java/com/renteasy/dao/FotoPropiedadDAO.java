@@ -127,6 +127,26 @@ public class FotoPropiedadDAO {
         return false;
     }
 
+    // ===== MÉTODOS DE COMPATIBILIDAD =====
+    
+    /**
+     * Método de compatibilidad para agregar foto
+     * @param foto Foto a agregar
+     * @return true si se agregó exitosamente
+     */
+    public boolean agregar(FotoPropiedad foto) {
+        return agregarFoto(foto) > 0;
+    }
+    
+    /**
+     * Método de compatibilidad para eliminar foto
+     * @param id ID de la foto a eliminar
+     * @return true si se eliminó exitosamente
+     */
+    public boolean eliminar(int id) {
+        return eliminarFoto(id);
+    }
+
     /**
      * Método auxiliar para mapear ResultSet a objeto FotoPropiedad
      */
@@ -138,3 +158,4 @@ public class FotoPropiedadDAO {
         );
     }
 }
+

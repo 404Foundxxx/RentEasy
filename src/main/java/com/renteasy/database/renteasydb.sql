@@ -51,35 +51,6 @@ CREATE TABLE solicitudes_alquiler (
     FOREIGN KEY (propiedad_id) REFERENCES propiedades(id) ON DELETE CASCADE
 );
 
--- Tabla contratos
-CREATE TABLE contratos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    propiedad_id INT NOT NULL,
-    propietario_id INT NOT NULL,
-    inquilino_id INT NOT NULL,
-    fecha_inicio DATE NOT NULL,
-    fecha_fin DATE NOT NULL,
-    monto_mensual DECIMAL(10,2) NOT NULL,
-    firmado_propietario BOOLEAN DEFAULT FALSE,
-    firmado_inquilino BOOLEAN DEFAULT FALSE,
-    estado ENUM('activo', 'finalizado', 'cancelado') DEFAULT 'activo',
-    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (propiedad_id) REFERENCES propiedades(id),
-    FOREIGN KEY (propietario_id) REFERENCES usuarios(id),
-    FOREIGN KEY (inquilino_id) REFERENCES usuarios(id)
-);
-
--- Tabla pagos
-CREATE TABLE pagos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    contrato_id INT NOT NULL,
-    fecha_pago DATE NOT NULL,
-    monto DECIMAL(10,2) NOT NULL,
-    metodo_pago VARCHAR(50),
-    estado ENUM('pendiente', 'pagado', 'vencido') DEFAULT 'pendiente',
-    FOREIGN KEY (contrato_id) REFERENCES contratos(id) ON DELETE CASCADE
-);
-
 -- Tabla mensajes de soporte
 CREATE TABLE mensajes_soporte (
     id INT AUTO_INCREMENT PRIMARY KEY,

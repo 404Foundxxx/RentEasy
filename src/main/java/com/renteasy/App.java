@@ -1,6 +1,6 @@
 package com.renteasy;
 
-import com.renteasy.controllers.Inicio.ControladorLogin;
+import com.renteasy.controllers.inicio.ControladorLogin;
 import com.renteasy.utils.Utilities;
 import com.renteasy.views.inicio.*;
 

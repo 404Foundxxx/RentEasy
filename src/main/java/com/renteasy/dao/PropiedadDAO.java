@@ -1,9 +1,6 @@
 package com.renteasy.dao;
 
-/**
- *
- * @author Admin
- */
+
 
 import com.renteasy.database.ConexionBD;
 import com.renteasy.models.Propiedad;
@@ -344,3 +341,4 @@ public class PropiedadDAO {
         );
     }
 }
+

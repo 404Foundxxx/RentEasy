@@ -10,6 +10,32 @@ public class SolicitudAlquiler {
     private String estado; // "pendiente", "aceptada", "rechazada"
     private Timestamp fechaSolicitud;
     
+    // Enumeración para estados de solicitud
+    public enum EstadoSolicitud {
+        PENDIENTE("pendiente"),
+        ACEPTADA("aceptada"),
+        RECHAZADA("rechazada");
+        
+        private final String valor;
+        
+        EstadoSolicitud(String valor) {
+            this.valor = valor;
+        }
+        
+        public String getValor() {
+            return valor;
+        }
+        
+        public static EstadoSolicitud fromString(String valor) {
+            for (EstadoSolicitud estado : EstadoSolicitud.values()) {
+                if (estado.valor.equals(valor)) {
+                    return estado;
+                }
+            }
+            throw new IllegalArgumentException("Estado de solicitud no válido: " + valor);
+        }
+    }
+    
     // Campos adicionales para información enriquecida (de JOINs)
     private String nombreInquilino;
     private String emailInquilino;
@@ -159,14 +185,6 @@ public class SolicitudAlquiler {
     
     public boolean esRechazada() {
         return "rechazada".equalsIgnoreCase(estado);
-    }
-    
-    public void aceptar() {
-        this.estado = "aceptada";
-    }
-    
-    public void rechazar() {
-        this.estado = "rechazada";
     }
     
     public String getEstadoDescripcion() {

@@ -7,8 +7,6 @@ import java.util.Objects;
 /**
  * Modelo de datos para la entidad Usuario
  * Representa un usuario en el sistema RentEasy
- * 
- * @author gmart
  */
 public class Usuario {
     
@@ -256,3 +254,4 @@ public class Usuario {
                tipoUsuario != null && !tipoUsuario.trim().isEmpty();
     }
 }
+

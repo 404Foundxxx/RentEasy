@@ -1,9 +1,5 @@
 package com.renteasy.dao;
 
-/**
- *
- * @author Admin
- */
 
 import com.renteasy.database.ConexionBD;
 import com.renteasy.models.SolicitudAlquiler;
@@ -14,7 +10,6 @@ import java.util.List;
 
 /**
  * Clase DAO para manejar las operaciones de base de datos para solicitudes de alquiler
- * @author gmart
  */
 public class SolicitudAlquilerDAO {
 
@@ -348,6 +343,111 @@ public class SolicitudAlquilerDAO {
         }
         
         return 0;
+    }
+    
+    /**
+     * Alias para obtenerSolicitudPorId - Compatibilidad con controladores
+     */
+    public SolicitudAlquiler obtenerPorId(int id) {
+        return obtenerSolicitudPorId(id);
+    }
+    
+    /**
+     * Alias para obtenerTodasLasSolicitudes - Compatibilidad con controladores
+     */
+    public List<SolicitudAlquiler> obtenerTodas() {
+        return obtenerTodasLasSolicitudes();
+    }
+    
+    /**
+     * Alias para obtenerSolicitudesPorPropiedad - Compatibilidad con controladores
+     */
+    public List<SolicitudAlquiler> obtenerPorPropiedad(int propiedadId) {
+        return obtenerSolicitudesPorPropiedad(propiedadId);
+    }
+    
+    /**
+     * Obtener solicitudes por estado
+     */
+    public List<SolicitudAlquiler> obtenerPorEstado(String estado) {
+        List<SolicitudAlquiler> solicitudes = new ArrayList<>();
+        String sql = "SELECT sa.*, u.nombre as nombre_inquilino, u.email as email_inquilino, " +
+                    "p.titulo as titulo_propiedad, p.direccion as direccion_propiedad " +
+                    "FROM solicitudes_alquiler sa " +
+                    "JOIN usuarios u ON sa.inquilino_id = u.id " +
+                    "JOIN propiedades p ON sa.propiedad_id = p.id " +
+                    "WHERE sa.estado = ? " +
+                    "ORDER BY sa.fecha_solicitud DESC";
+        
+        try (Connection conn = ConexionBD.obtenerConexion();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, estado);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    solicitudes.add(mapearResultadoAObjeto(rs));
+                }
+            }
+            
+        } catch (SQLException | FileNotFoundException e) {
+            System.out.println("Error al obtener solicitudes por estado: " + e.getMessage());
+        }
+        
+        return solicitudes;
+    }
+    
+    /**
+     * Actualizar una solicitud existente
+     */
+    public boolean actualizar(SolicitudAlquiler solicitud) {
+        String sql = "UPDATE solicitudes_alquiler SET inquilino_id = ?, propiedad_id = ?, " +
+                    "mensaje = ?, estado = ? WHERE id = ?";
+        
+        try (Connection conn = ConexionBD.obtenerConexion();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setInt(1, solicitud.getInquilinoId());
+            stmt.setInt(2, solicitud.getPropiedadId());
+            stmt.setString(3, solicitud.getMensaje());
+            stmt.setString(4, solicitud.getEstado());
+            stmt.setInt(5, solicitud.getId());
+            
+            int filasAfectadas = stmt.executeUpdate();
+            return filasAfectadas > 0;
+            
+        } catch (SQLException | FileNotFoundException e) {
+            System.out.println("Error al actualizar solicitud: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Actualizar estado de una solicitud (método de compatibilidad)
+     * @param solicitudId ID de la solicitud
+     * @param nuevoEstado Nuevo estado
+     * @return true si se actualizó exitosamente
+     */
+    public boolean actualizarEstado(int solicitudId, String nuevoEstado) {
+        return actualizarEstadoSolicitud(solicitudId, nuevoEstado);
+    }
+    
+    /**
+     * Eliminar una solicitud
+     */
+    public boolean eliminar(int id) {
+        String sql = "DELETE FROM solicitudes_alquiler WHERE id = ?";
+        
+        try (Connection conn = ConexionBD.obtenerConexion();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setInt(1, id);
+            int filasAfectadas = stmt.executeUpdate();
+            return filasAfectadas > 0;
+            
+        } catch (SQLException | FileNotFoundException e) {
+            System.out.println("Error al eliminar solicitud: " + e.getMessage());
+            return false;
+        }
     }
 
     /**

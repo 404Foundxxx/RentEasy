@@ -2,6 +2,7 @@ package com.renteasy.dao;
 
 import com.renteasy.database.ConexionBD;
 import com.renteasy.models.Usuario;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.FileNotFoundException;
 import java.sql.*;
@@ -10,34 +11,78 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class UsuarioDAO {
-    
+
     private static final Logger LOGGER = Logger.getLogger(UsuarioDAO.class.getName());
 
-   
     /**
-     * Método para login - Verifica credenciales y devuelve el usuario
+     * Método para registrar un nuevo usuario con contraseña hasheada usando BCrypt
      */
-    public Usuario realizarLogin(String email, String contrasena) {
-        String sql = "SELECT * FROM usuarios WHERE email = ? AND contraseña = ?";
+    public boolean actualizarRegistroUsuario(String nombre, String email, String contrasena, String telefono,
+            String tipoUsuario) {
+        // Validar que no exista el email
+        if (existeEmail(email)) {
+            LOGGER.warning("Intento de registro con email existente: " + email);
+            return false;
+        }
+
+        // Hashear la contraseña con BCrypt
+        String contrasenaHash = BCrypt.hashpw(contrasena, BCrypt.gensalt());
+
+        String sql = "INSERT INTO usuarios (nombre, email, contraseña, telefono, tipo_usuario) VALUES (?, ?, ?, ?, ?)";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, nombre);
+            ps.setString(2, email);
+            ps.setString(3, contrasenaHash); // Usar contraseña hasheada
+            ps.setString(4, telefono);
+            ps.setString(5, tipoUsuario);
+
+            int filasAfectadas = ps.executeUpdate();
+            if (filasAfectadas > 0) {
+                LOGGER.info("Usuario registrado exitosamente con BCrypt: " + email);
+                return true;
+            }
+            return false;
+
+        } catch (SQLException | FileNotFoundException e) {
+            LOGGER.log(Level.SEVERE, "Error al registrar usuario: " + email, e);
+            return false;
+        }
+    }
+
+    /**
+     * Método para login - Verifica credenciales usando BCrypt y devuelve el usuario
+     */
+    public Usuario validarLoginUsuario(String email, String contrasena) {
+        // Primero obtenemos el usuario por email para verificar la contraseña hasheada
+        String sql = "SELECT * FROM usuarios WHERE email = ?";
+        try (Connection con = ConexionBD.obtenerConexion();
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, email);
-            ps.setString(2, contrasena);
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return new Usuario(
-                        rs.getInt("id"),
-                        rs.getString("nombre"),
-                        rs.getString("email"),
-                        rs.getString("contraseña"),
-                        rs.getString("telefono"),
-                        rs.getString("tipo_usuario"),
-                        rs.getTimestamp("creado_en")
-                    );
+                    String contrasenaHasheada = rs.getString("contraseña");
+
+                    // Verificar la contraseña usando BCrypt
+                    if (BCrypt.checkpw(contrasena, contrasenaHasheada)) {
+                        LOGGER.info("Login exitoso para email: " + email);
+                        return new Usuario(
+                                rs.getInt("id"),
+                                rs.getString("nombre"),
+                                rs.getString("email"),
+                                rs.getString("contraseña"),
+                                rs.getString("telefono"),
+                                rs.getString("tipo_usuario"),
+                                rs.getTimestamp("creado_en"));
+                    } else {
+                        LOGGER.warning("Contraseña incorrecta para email: " + email);
+                    }
+                } else {
+                    LOGGER.warning("Usuario no encontrado para email: " + email);
                 }
             }
 
@@ -53,7 +98,7 @@ public class UsuarioDAO {
     public boolean existeEmail(String email) {
         String sql = "SELECT 1 FROM usuarios WHERE email = ?";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
@@ -67,53 +112,24 @@ public class UsuarioDAO {
     }
 
     /**
-     * Método para registrar un nuevo usuario
+     * Registrar usuario con BCrypt y devolver el ID generado
      */
-    public boolean registrarUsuario(String nombre, String email, String contrasena, String telefono, String tipoUsuario) {
-        // Validar que no exista el email
-        if (existeEmail(email)) {
-            LOGGER.warning("Intento de registro con email existente: " + email);
-            return false;
-        }
-
-        String sql = "INSERT INTO usuarios (nombre, email, contraseña, telefono, tipo_usuario) VALUES (?, ?, ?, ?, ?)";
-        try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, nombre);
-            ps.setString(2, email);
-            ps.setString(3, contrasena);
-            ps.setString(4, telefono);
-            ps.setString(5, tipoUsuario);
-
-            int filasAfectadas = ps.executeUpdate();
-            if (filasAfectadas > 0) {
-                LOGGER.info("Usuario registrado exitosamente: " + email);
-                return true;
-            }
-            return false;
-
-        } catch (SQLException | FileNotFoundException e) {
-            LOGGER.log(Level.SEVERE, "Error al registrar usuario: " + email, e);
-            return false;
-        }
-    }
-
-    /**
-     * Registrar usuario y devolver el ID generado
-     */
-    public int registrarUsuarioConId(String nombre, String email, String contrasena, String telefono, String tipoUsuario) {
+    public int registrarUsuarioConIdBCrypt(String nombre, String email, String contrasena, String telefono,
+            String tipoUsuario) {
         if (existeEmail(email)) {
             return -1; // Email ya existe
         }
 
+        // Hashear la contraseña con BCrypt
+        String contrasenaHash = BCrypt.hashpw(contrasena, BCrypt.gensalt());
+
         String sql = "INSERT INTO usuarios (nombre, email, contraseña, telefono, tipo_usuario) VALUES (?, ?, ?, ?, ?)";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setString(1, nombre);
             ps.setString(2, email);
-            ps.setString(3, contrasena);
+            ps.setString(3, contrasenaHash); // Usar contraseña hasheada
             ps.setString(4, telefono);
             ps.setString(5, tipoUsuario);
 
@@ -121,6 +137,7 @@ public class UsuarioDAO {
             if (filasAfectadas > 0) {
                 try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
+                        LOGGER.info("Usuario registrado con BCrypt e ID generado: " + email);
                         return generatedKeys.getInt(1);
                     }
                 }
@@ -138,20 +155,19 @@ public class UsuarioDAO {
     public Usuario obtenerPorId(int id) {
         String sql = "SELECT * FROM usuarios WHERE id = ?";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return new Usuario(
-                        rs.getInt("id"),
-                        rs.getString("nombre"),
-                        rs.getString("email"),
-                        rs.getString("contraseña"),
-                        rs.getString("telefono"),
-                        rs.getString("tipo_usuario"),
-                        rs.getTimestamp("creado_en")
-                    );
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getString("email"),
+                            rs.getString("contraseña"),
+                            rs.getString("telefono"),
+                            rs.getString("tipo_usuario"),
+                            rs.getTimestamp("creado_en"));
                 }
             }
 
@@ -167,20 +183,19 @@ public class UsuarioDAO {
     public Usuario obtenerPorEmail(String email) {
         String sql = "SELECT * FROM usuarios WHERE email = ?";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return new Usuario(
-                        rs.getInt("id"),
-                        rs.getString("nombre"),
-                        rs.getString("email"),
-                        rs.getString("contraseña"),
-                        rs.getString("telefono"),
-                        rs.getString("tipo_usuario"),
-                        rs.getTimestamp("creado_en")
-                    );
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getString("email"),
+                            rs.getString("contraseña"),
+                            rs.getString("telefono"),
+                            rs.getString("tipo_usuario"),
+                            rs.getTimestamp("creado_en"));
                 }
             }
 
@@ -197,19 +212,18 @@ public class UsuarioDAO {
         List<Usuario> lista = new ArrayList<>();
         String sql = "SELECT * FROM usuarios ORDER BY creado_en DESC";
         try (Connection con = ConexionBD.obtenerConexion();
-             Statement st = con.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sql)) {
 
             while (rs.next()) {
                 lista.add(new Usuario(
-                    rs.getInt("id"),
-                    rs.getString("nombre"),
-                    rs.getString("email"),
-                    rs.getString("contraseña"),
-                    rs.getString("telefono"),
-                    rs.getString("tipo_usuario"),
-                    rs.getTimestamp("creado_en")
-                ));
+                        rs.getInt("id"),
+                        rs.getString("nombre"),
+                        rs.getString("email"),
+                        rs.getString("contraseña"),
+                        rs.getString("telefono"),
+                        rs.getString("tipo_usuario"),
+                        rs.getTimestamp("creado_en")));
             }
 
         } catch (SQLException | FileNotFoundException e) {
@@ -219,34 +233,25 @@ public class UsuarioDAO {
     }
 
     /**
-     * Obtener todos los usuarios (método de compatibilidad)
-     * @return Lista de todos los usuarios
-     */
-    public List<Usuario> obtenerTodos() {
-        return listar();
-    }
-
-    /**
      * Listar usuarios por tipo
      */
     public List<Usuario> listarPorTipo(String tipoUsuario) {
         List<Usuario> lista = new ArrayList<>();
         String sql = "SELECT * FROM usuarios WHERE tipo_usuario = ? ORDER BY creado_en DESC";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, tipoUsuario);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     lista.add(new Usuario(
-                        rs.getInt("id"),
-                        rs.getString("nombre"),
-                        rs.getString("email"),
-                        rs.getString("contraseña"),
-                        rs.getString("telefono"),
-                        rs.getString("tipo_usuario"),
-                        rs.getTimestamp("creado_en")
-                    ));
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getString("email"),
+                            rs.getString("contraseña"),
+                            rs.getString("telefono"),
+                            rs.getString("tipo_usuario"),
+                            rs.getTimestamp("creado_en")));
                 }
             }
 
@@ -262,7 +267,7 @@ public class UsuarioDAO {
     public boolean actualizar(Usuario usuario) {
         String sql = "UPDATE usuarios SET nombre = ?, email = ?, contraseña = ?, telefono = ?, tipo_usuario = ? WHERE id = ?";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, usuario.getNombre());
             ps.setString(2, usuario.getEmail());
@@ -284,19 +289,22 @@ public class UsuarioDAO {
     }
 
     /**
-     * Actualizar contraseña de un usuario
+     * Actualizar contraseña de un usuario usando BCrypt
      */
-    public boolean actualizarContrasena(int usuarioId, String nuevaContrasena) {
+    public boolean actualizarContrasenaConBCrypt(int usuarioId, String nuevaContrasena) {
+        // Hashear la nueva contraseña con BCrypt
+        String contrasenaHash = BCrypt.hashpw(nuevaContrasena, BCrypt.gensalt());
+
         String sql = "UPDATE usuarios SET contraseña = ? WHERE id = ?";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, nuevaContrasena);
+            ps.setString(1, contrasenaHash);
             ps.setInt(2, usuarioId);
 
             boolean actualizado = ps.executeUpdate() > 0;
             if (actualizado) {
-                LOGGER.info("Contraseña actualizada para usuario ID: " + usuarioId);
+                LOGGER.info("Contraseña actualizada con BCrypt para usuario ID: " + usuarioId);
             }
             return actualizado;
 
@@ -312,7 +320,7 @@ public class UsuarioDAO {
     public boolean eliminar(int id) {
         String sql = "DELETE FROM usuarios WHERE id = ?";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
             boolean eliminado = ps.executeUpdate() > 0;
@@ -333,8 +341,8 @@ public class UsuarioDAO {
     public int contarUsuarios() {
         String sql = "SELECT COUNT(*) FROM usuarios";
         try (Connection con = ConexionBD.obtenerConexion();
-             Statement st = con.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sql)) {
 
             if (rs.next()) {
                 return rs.getInt(1);
@@ -352,7 +360,7 @@ public class UsuarioDAO {
     public int contarUsuariosPorTipo(String tipoUsuario) {
         String sql = "SELECT COUNT(*) FROM usuarios WHERE tipo_usuario = ?";
         try (Connection con = ConexionBD.obtenerConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+                PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, tipoUsuario);
             try (ResultSet rs = ps.executeQuery()) {

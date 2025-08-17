@@ -6,10 +6,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-/**
- *
- * @author gmart
- */
 public class Utilities {
 
     public static void FlatLaf() {

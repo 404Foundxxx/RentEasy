@@ -1,2 +1,3 @@
 jdbc:mysql://localhost:3306/renteasydb
 root
+L22d

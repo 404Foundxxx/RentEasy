@@ -134,7 +134,7 @@ public class FrmMantenimientoUsuarios extends javax.swing.JFrame {
         lblId.setText("ID:");
 
         cmbTipoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "propietario", "inquilino", "admin" }));
+        cmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "propietario", "inquilino" }));
 
         lblTipoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblTipoUsuario.setText("Tipo Usuario:*");
@@ -214,7 +214,7 @@ public class FrmMantenimientoUsuarios extends javax.swing.JFrame {
         jPanel1.add(pnlFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 940, 330));
 
         cmbFiltroTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cmbFiltroTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "propietario", "inquilino", "admin" }));
+        cmbFiltroTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "propietario", "inquilino" }));
         jPanel1.add(cmbFiltroTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 160, -1));
 
         btnGuardar.setBackground(new java.awt.Color(52, 152, 219));

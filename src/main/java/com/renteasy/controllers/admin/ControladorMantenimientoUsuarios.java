@@ -220,6 +220,14 @@ public class ControladorMantenimientoUsuarios {
             String telefono = frmMantenimientoUsuarios.txtTelefono.getText().trim();
             String tipoUsuario = frmMantenimientoUsuarios.cmbTipoUsuario.getSelectedItem().toString();
 
+            // Validación adicional: No permitir crear o actualizar usuarios admin
+            if ("admin".equalsIgnoreCase(tipoUsuario)) {
+                JOptionPane.showMessageDialog(frmMantenimientoUsuarios,
+                        "No está permitido crear o modificar usuarios con tipo 'admin'.",
+                        "Operación no permitida", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             boolean exito = false;
 
             if (modoEdicion) {

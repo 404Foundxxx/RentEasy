@@ -115,7 +115,6 @@ Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detal
 ## 📞 Contacto
 
 - **Repositorio**: [github.com/404Foundxxx/RentEasy](https://github.com/404Foundxxx/RentEasy)
-- **Issues**: [github.com/404Foundxxx/RentEasy/issues](https://github.com/404Foundxxx/RentEasy/issues)
 
 ---
 

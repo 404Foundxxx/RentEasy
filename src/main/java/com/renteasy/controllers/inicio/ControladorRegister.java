@@ -53,11 +53,10 @@ public class ControladorRegister {
             }
         });
 
-        // Llenar ComboBox de Tipo de Usuario con el enum de Usuario
+        // Llenar ComboBox de Tipo de Usuario solo con PROPIETARIO e INQUILINO
         this.frmRegister.cmbTipoUsuario.removeAllItems();
-        for (Usuario.TipoUsuario tipo : Usuario.TipoUsuario.values()) {
-            this.frmRegister.cmbTipoUsuario.addItem(tipo.getValor());
-        }
+        this.frmRegister.cmbTipoUsuario.addItem(Usuario.TipoUsuario.PROPIETARIO.getValor());
+        this.frmRegister.cmbTipoUsuario.addItem(Usuario.TipoUsuario.INQUILINO.getValor());
 
     }
 
@@ -89,6 +88,14 @@ public class ControladorRegister {
      * @param tipoUsuario
      */
     private void registrar(String nombre, String email, String contrasena, String telefono, String tipoUsuario) {
+        // Validación adicional: No permitir registro de usuarios admin
+        if ("admin".equalsIgnoreCase(tipoUsuario)) {
+            JOptionPane.showMessageDialog(frmRegister, 
+                    "No está permitido registrar usuarios con tipo 'admin'.", 
+                    "Registro no permitido", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         if (usuarioDAO.registrarUsuarioConIdBCrypt(nombre, email, contrasena, telefono, tipoUsuario) > 0) {
             JOptionPane.showMessageDialog(frmRegister, "Registro exitoso", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             new ControladorLogin(frmLogin);
